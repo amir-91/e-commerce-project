@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+
+<div class="container">
+
+   <div class="card bg-light">
+   <article class="card-body mx-auto" style="width:350px;">
+	<h4 class="card-title mt-3 text-center">Create Account</h4>
+	<p class="text-center">Get started with your free account</p>
+	<p>
+		<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+	</p>
+	<p class="divider-text">
+        <span class="bg-light">OR</span>
+    </p>
+	<form class="form" [formGroup]="addFbuilder" (ngSubmit)="onFormSubmit()">
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+		<input name="" formControlName="name" class="form-control" placeholder="Full name" type="text" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+		<div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+			<div *ngIf="f.name.errors.required"> Name is required</div>
+		</div>
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+		 <input type="text" placeholder="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+		 <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+			 <div *ngIf="f.email.errors.required">Email is required</div>
+			 <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+		 </div>
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		</div>
+		
+		<input type="text" formControlName="phone" placeholder="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+		<div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+			<div *ngIf="f.phone.errors.required">phone is required</div>
+			<div *ngIf="f.phone.errors">phone must be a valid </div>
+		</div>
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	
+	
+	</div> <!-- form-group end.// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+		<input class="form-control" placeholder="Create password" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+		<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+			<div *ngIf="f.password.errors.required">password is required</div>
+			<div *ngIf="f.password.errors">password must be a valid </div>
+		</div>
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="confirm password" type="password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+		<div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+			<div *ngIf="f.confirmPassword.errors.required">confirm password is required</div>
+			<div *ngIf="f.confirmPassword.errors.mustMatch">password must match</div>
+		</div>
+    </div> <!-- form-group// -->                                      
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" > Create Account  </button>
+    </div> <!-- form-group// -->      
+    <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
+</form>
+</article>
+</div> <!-- card.// -->
+</div> 
+<!--container end.//-->
+

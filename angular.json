@@ -28,9 +28,20 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/owl.carousel.css",
+              "src/assets/css/responsive.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/bxslider.min.js",
+              "src/assets/js/jquery.easing.1.3.min.js",
+              "src/assets/js/jquery.sticky.js",
+              "src/assets/js/main.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/script.slider.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -65,7 +76,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "frontEnd:build"
+            "browserTarget": "frontEnd:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

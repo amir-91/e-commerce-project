@@ -1,0 +1,215 @@
+<!-- <app-header [totalPrice]="totalPrice" [cartCounter]="cartCounter"></app-header>
+ -->
+    
+<div class="mainmenu-area">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div> 
+
+            
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href=""onclick="return false" (click)=home()>Home</a></li>
+                    <li><a href=""(click)=product() onclick="return false">Shop page</a></li>
+                    <li><a href=""(click)= singleProduct() onclick="return false">Single product</a></li>
+                    <li><a href="" onclick="return false" (click)=goToCart()>Cart</a></li>
+                    <li><a href=""onclick="return false" (click)=checkOut()>Checkout</a></li>
+                    <li><a href=""onclick="return false" (click)=signup()>Sign Up</a></li>
+                    <li><a href=""onclick="return false" (click)=login()>Log In</a></li>
+                    
+                </ul>
+            </div>  
+        </div>
+    </div>
+</div> <!-- End mainmenu area -->
+
+
+
+<div class="promo-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo1">
+                    <i class="fa fa-refresh"></i>
+                    <p>30 Days return</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo2">
+                    <i class="fa fa-truck"></i>
+                    <p>Free shipping</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo3">
+                    <i class="fa fa-lock"></i>
+                    <p>Secure payments</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo4">
+                    <i class="fa fa-gift"></i>
+                    <p>New products</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End promo area -->
+
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="our-products">
+                <h2>Honey Products</h2>
+                <div class="latest-product">
+                    <h2 class="section-title"></h2>
+                    <div class="product-carousel" *ngFor='let p of products[0].categories[2].sub_category'>
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-img">
+                                <div class="product-hover">
+                                    <a href="" onclick="return false" class="add-to-cart-link" (click)= addToCart(p.price) ><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="" onclick="return false" class="view-details-link" (click)='singleProduct(); getProductById (p.id)'><i class="fa fa-link"></i> See details</a>
+                                </div>
+                            </div>
+                            
+                            <h2>{{p.title}}</h2>
+                            
+                            <div class="product-carousel-price">
+                                <ins>{{p.price}} EGP</ins> 
+                            </div> 
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <h2>Oats Products</h2>
+                <div class="latest-product">
+                    <h2 class="section-title"></h2>
+                    <div class="product-carousel" *ngFor='let p of products[0].categories[4].sub_category'>
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-img">
+                                <div class="product-hover">
+                                    <a href="" onclick="return false" class="add-to-cart-link" (click)= addToCart(p.price) ><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="" onclick="return false" class="view-details-link" (click)='singleProduct(); getProductById (p.id)'><i class="fa fa-link"></i> See details</a>
+                                </div>
+                            </div>
+                            
+                            <h2>{{p.title}}</h2>
+                            
+                            <div class="product-carousel-price">
+                                <ins>{{p.price}} EGP</ins> 
+                            </div> 
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <h2>Spices Products</h2>
+                <div class="latest-product">
+                    <h2 class="section-title"></h2>
+                    <div class="product-carousel" *ngFor='let p of products[0].categories[3].sub_category'>
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-img">
+                                <div class="product-hover">
+                                    <a href="" onclick="return false" class="add-to-cart-link" (click)= addToCart(p.price) ><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="" onclick="return false" class="view-details-link" (click)='singleProduct(); getProductById (p.id)'><i class="fa fa-link"></i> See details</a>
+                                </div>
+                            </div>
+                            
+                            <h2>{{p.title}}</h2>
+                            
+                            <div class="product-carousel-price">
+                                <ins>{{p.price}} EGP</ins> 
+                            </div> 
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End main content area -->
+
+<div class="product-widget-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="single-product-widget">
+                    <h2 class="product-wid-title">Top Sellers</h2>
+                    <a href="" class="wid-view-more">View All</a>
+                    <div class="single-wid-product" *ngFor='let p of products[0].categories[2].sub_category'>
+                        <a href="" onclick="return false"(click)='singleProduct()'><img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-thumb"></a>
+                        <h2><a href=""onclick="return false"(click)='singleProduct()'>{{p.title}}</a></h2>
+                        <div class="product-wid-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="product-wid-price">
+                            <ins>{{p.price}} EGP</ins> 
+                        </div>                            
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-product-widget">
+                    <h2 class="product-wid-title">Recently Viewed</h2>
+                    <a href="#" class="wid-view-more">View All</a>
+                    <div class="single-wid-product"*ngFor='let p of products[0].categories[0].sub_category'>
+                        <a href=""onclick="return false"(click)='singleProduct()'><img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-thumb"></a>
+                        <h2><a href=""onclick="return false"(click)='singleProduct()'>{{p.title}}</a></h2>
+                        <div class="product-wid-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="product-wid-price">
+                            <ins>{{p.price}} EGP</ins> 
+                        </div>                            
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-product-widget">
+                    <h2 class="product-wid-title">Top New</h2>
+                    <a href="#" class="wid-view-more">View All</a>
+                    <div class="single-wid-product" *ngFor='let p of products[0].categories[1].sub_category'>
+                        <a href=""onclick="return false"(click)='singleProduct()'><img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-thumb"></a>
+                        <h2><a href=""onclick="return false"(click)='singleProduct()'>{{p.title}}</a></h2>
+                        <div class="product-wid-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="product-wid-price">
+                            <ins>{{p.price}} EGP</ins> 
+                        </div>                            
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End product widget area -->
