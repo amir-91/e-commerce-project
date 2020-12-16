@@ -17,7 +17,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href=""onclick="return false" (click)=home()>Home</a></li>
-                    <li><a href=""(click)=product() onclick="return false">Shop page</a></li>
                     <li><a href=""(click)= singleProduct() onclick="return false">Single product</a></li>
                     <li><a href="" onclick="return false" (click)=goToCart()>Cart</a></li>
                     <li><a href=""onclick="return false" (click)=checkOut()>Checkout</a></li>
@@ -77,8 +76,8 @@
                             <div class="product-f-image">
                                 <img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-img">
                                 <div class="product-hover">
-                                    <a href="" onclick="return false" class="add-to-cart-link" (click)= addToCart(p.price) ><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="" onclick="return false" class="view-details-link" (click)='singleProduct(); getProductById (p.id)'><i class="fa fa-link"></i> See details</a>
+                                    <a href="" onclick="return false" class="add-to-cart-link" (click)=' getProductById (p.id,p.title,p.price,p.image); addToCart(p.price,p.id); goToCart()'><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="" onclick="return false" class="view-details-link" (click)=' getProductById (p.id,p.title,p.price,p.image); singleProduct()'><i class="fa fa-link"></i> See details</a>
                                 </div>
                             </div>
                             
@@ -100,8 +99,8 @@
                             <div class="product-f-image">
                                 <img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-img">
                                 <div class="product-hover">
-                                    <a href="" onclick="return false" class="add-to-cart-link" (click)= addToCart(p.price) ><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="" onclick="return false" class="view-details-link" (click)='singleProduct(); getProductById (p.id)'><i class="fa fa-link"></i> See details</a>
+                                    <a href="" onclick="return false" class="add-to-cart-link" (click)='getProductById (p.id,p.title,p.price,p.image); addToCart(p.price,p.id); goToCart()'><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="" onclick="return false" class="view-details-link" (click)=' getProductById (p.id,p.title,p.price,p.image); singleProduct()'><i class="fa fa-link"></i> See details</a>
                                 </div>
                             </div>
                             
@@ -123,8 +122,8 @@
                             <div class="product-f-image">
                                 <img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-img">
                                 <div class="product-hover">
-                                    <a href="" onclick="return false" class="add-to-cart-link" (click)= addToCart(p.price) ><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="" onclick="return false" class="view-details-link" (click)='singleProduct(); getProductById (p.id)'><i class="fa fa-link"></i> See details</a>
+                                    <a href="" onclick="return false" class="add-to-cart-link" (click)='getProductById (p.id,p.title,p.price,p.image); addToCart(p.price,p.id); goToCart()' ><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="" onclick="return false" class="view-details-link" (click)='getProductById (p.id,p.title,p.price,p.image); singleProduct()'><i class="fa fa-link"></i> See details</a>
                                 </div>
                             </div>
                             
@@ -151,8 +150,8 @@
                     <h2 class="product-wid-title">Top Sellers</h2>
                     <a href="" class="wid-view-more">View All</a>
                     <div class="single-wid-product" *ngFor='let p of products[0].categories[2].sub_category'>
-                        <a href="" onclick="return false"(click)='singleProduct()'><img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-thumb"></a>
-                        <h2><a href=""onclick="return false"(click)='singleProduct()'>{{p.title}}</a></h2>
+                        <a href="" onclick="return false"  (click)='addToCart(p.price,p.id); goToCart()'><img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-thumb"></a>
+                        <h2><a href=""onclick="return false"(click)='getProductById (p.id,p.title,p.price,p.image); singleProduct()'>{{p.title}}</a></h2>
                         <div class="product-wid-rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -172,8 +171,8 @@
                     <h2 class="product-wid-title">Recently Viewed</h2>
                     <a href="#" class="wid-view-more">View All</a>
                     <div class="single-wid-product"*ngFor='let p of products[0].categories[0].sub_category'>
-                        <a href=""onclick="return false"(click)='singleProduct()'><img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-thumb"></a>
-                        <h2><a href=""onclick="return false"(click)='singleProduct()'>{{p.title}}</a></h2>
+                        <a href=""onclick="return false"(click)='getProductById (p.id,p.title,p.price,p.image); singleProduct()'><img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-thumb"></a>
+                        <h2><a href=""onclick="return false"(click)='getProductById (p.id,p.title,p.price,p.image); singleProduct()'>{{p.title}}</a></h2>
                         <div class="product-wid-rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -194,8 +193,8 @@
                     <h2 class="product-wid-title">Top New</h2>
                     <a href="#" class="wid-view-more">View All</a>
                     <div class="single-wid-product" *ngFor='let p of products[0].categories[1].sub_category'>
-                        <a href=""onclick="return false"(click)='singleProduct()'><img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-thumb"></a>
-                        <h2><a href=""onclick="return false"(click)='singleProduct()'>{{p.title}}</a></h2>
+                        <a href=""onclick="return false"(click)='getProductById (p.id,p.title,p.price,p.image); singleProduct()'><img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{p.image}}" alt="" class="product-thumb"></a>
+                        <h2><a href=""onclick="return false"(click)='getProductById (p.id,p.title,p.price,p.image); singleProduct()'>{{p.title}}</a></h2>
                         <div class="product-wid-rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>

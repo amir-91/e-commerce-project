@@ -7,11 +7,10 @@
             <div class="col-md-8">
                 <div class="user-menu">
                     <ul>
-                        <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                        <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
+                        <li><a href=""onclick="return false" (click)=profile()><i class="fa fa-user"></i> My Account</a></li>
                         <li><a href=""onclick="return false" (click)=goToCart()><i class="fa fa-user"></i> My Cart</a></li>
                         <li><a href=""onclick="return false" (click)=checkOut()><i class="fa fa-user"></i> Checkout</a></li>
-                        <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                        <li><a href=""onclick="return false" (click)=login()><i class="fa fa-user"></i> Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -54,7 +53,7 @@
               
               <div class="col-sm-6">
                   <div class="shopping-item">
-                      <a href=""onclick="return false" (click)=goToCart()>Cart - <span class="cart-amunt">$   {{totalPrice}}</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">{{cartCounter}}</span></a>
+                      <a href=""onclick="return false" (click)=goToCart()>Cart - <span class="cart-amunt"> {{totalPrice}} EGP  </span> <i class="fa fa-shopping-cart"></i> <span class="product-count" (change)="quantityChanged()">{{arraySum}}</span></a>
                
                   </div>
               </div>

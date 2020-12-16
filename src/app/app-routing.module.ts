@@ -4,18 +4,17 @@ import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { ProductComponent } from './components/product/product.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
+import {ProfileComponent} from './components/profile/profile.component'
+import {HeaderComponent} from './components/header/header.component'
 
 
 const routes: Routes = [
   {
     path: '' , component: HomeComponent
   },
-  {
-    path:'product' , component:ProductComponent
-  },
+  
   {
     path:'cart' , component:CartComponent
   },
@@ -30,6 +29,12 @@ const routes: Routes = [
   },
   {
     path:'signup' , component:SignupComponent
+  },
+  {
+    path: 'profile' , component: ProfileComponent
+  },
+  {
+    path: 'header' , component: HeaderComponent
   },
   
     

@@ -12,13 +12,11 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href=""onclick="return false" (click)=home()>Home</a></li>
-                    <li><a href=""onclick="return false" (click)=product()>Shop page</a></li>
                     <li  class="active"><a href=""onclick="return false" (click)=singleProduct()>Single product</a></li>
                     <li><a href=""onclick="return false" (click)=goToCart()>Cart</a></li>
                     <li><a href=""onclick="return false" (click)=checkOut()>Checkout</a></li>
-                    <li><a href="#">Category</a></li>
-                    <li><a href="#">Others</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href=""onclick="return false" (click)=signup()>Sign Up</a></li>
+                    <li><a href=""onclick="return false" (click)=login()>Log In</a></li>
                 </ul>
                 
             </div>  
@@ -26,5 +24,24 @@
         </div>
     </div>
 </div> <!-- End mainmenu area -->
+<div class="singleProduct">
 
-{{productId}}
+    <div class="productImage">
+
+        <img src="http://geebly.ahmedkhattab.com/uploads/images/products/{{dataOfProduct.image}}" alt="" class="product-img">
+
+    </div>
+
+    <div class="productData">
+
+       <h4>{{dataOfProduct.title}}</h4>
+       <p>product id: {{dataOfProduct.id}}</p>
+       <p>Price: {{dataOfProduct.price}} EGP</p> 
+        
+    </div>
+
+    <div class="button">
+        <button type="submit" [disabled]="isInvalid()" (click)='addToCart(dataOfProduct.price); goToCart()' >Add to cart</button>
+    </div>
+</div>
+   

@@ -1,0 +1,11 @@
+.container {
+    margin-top: 70px;
+    margin-left: 400px ;
+    margin-bottom: 70px;
+}
+
+.img-rounded {
+    height: 100px;
+    width: 100px;
+    margin-left: 60px;
+}

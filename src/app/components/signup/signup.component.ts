@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup} from '@angular/forms';
 import {MustMatch} from 'src/app/_helpers/must-match.validator'
 import {HttpClient} from '@angular/common/http'
 import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,17 +12,20 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+
+  private signupData : any 
   
   formValues:any [] = []
   addFbuilder
   submitted= false
-  users:any []=[]
+  users:any [] =[]
 
   constructor(private fb: FormBuilder,
               private http: HttpClient,
-              private productService:ProductService) { 
+              private productService:ProductService,
+              private router:Router) { 
 
-
+               
   this.addFbuilder = this.fb.group({
     name:[,[Validators.required, Validators.minLength(6)]],
     email: ['',[Validators.email]],
@@ -41,22 +45,41 @@ export class SignupComponent implements OnInit {
    
     
   }
+
+  //to transfer data between service and component
+  sendValueIntoService(value: any) {
+    this.productService.setdata(value);
+}
+
   onFormSubmit(){
     console.log(this.addFbuilder.value)
     this.formValues = this.addFbuilder.value
+
+
     this.submitted = true
     if (this.addFbuilder.invalid) {
     
     } 
 
-    this.productService.postUsers().subscribe((users) => {
+   
+    if(!this.addFbuilder.invalid) {
+      this.sendValueIntoService(this.formValues) 
+      this.productService.postUsers().subscribe((users) => {
        
-      this.users.push(users);
-     console.log(this.users);
-    });
-    /* this.http.post<any>('localhost:3000/user/add', { title: 'Angular POST Request Example' }).subscribe(data => {
-      this.postId = data.name;
-  }) */
+       this.users.push(users);
+       console.log(this.users);
+
+      const backResponse = users 
+      
+      if (backResponse.status==0) {
+        alert('1- name: firstName + LastName' + "\n" + '2- password: must contain (capital letter + character)'+ "\n" +"3- password doesn't contain your name")
+      } else {
+      this.router.navigate([""])
+      }
+      });
+    }
+
+   
     
     
   }
@@ -66,3 +89,4 @@ export class SignupComponent implements OnInit {
   
 }
 
+ 

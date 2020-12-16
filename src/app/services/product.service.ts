@@ -14,6 +14,7 @@ export class ProductService {
 
   
   httpOptionsNoAuth : any;
+  productDetails: any;
 
   constructor(private http: HttpClient) { 
     this.httpOptionsNoAuth = {
@@ -26,13 +27,58 @@ export class ProductService {
   }
 
   
+ //to transfer data between component to the service
+  private signupData: any;
+  private loginData: any;
+
+  public setdata(value: any) {
+      this.signupData = value;
+      console.log('here in service')
+      console.log(this.signupData)
+  }
+
+  public setdata2(value: any) {
+    this.loginData = value;
+    console.log('here in service')
+    console.log(this.loginData)
+}
+
+  public setProductDetails(value: any) {
+    this.productDetails = value;
+    
+    console.log(this.productDetails)
+}
+
+  public login(value: any) {
+    this.loginData = value;
+    console.log('here in service')
+    console.log(this.loginData)
+}
+
+  getProductDetails () {
+    console.log('here in service')
+    return this.productDetails
+    
+  }
+
+
+
+  //for profile component
+  getSignUp () {
+    return this.signupData
+  }
+
 
   getAllProducts (): Observable <any> {
     return this.http.get<any>("http://geebly.ahmedkhattab.com/api/v1/categories", { headers: this.httpOptionsNoAuth.headers}); //this will return observable (stream of data contiously)
   }
 
   postUsers (): Observable <any> {
-    return this.http.post<any>("http://localhost:3000/user/add", { headers: this.httpOptionsNoAuth.headers}); //this will return observable (stream of data contiously)
+    return this.http.post<any>("http://localhost:3000/user/add", this.signupData); //this will return observable (stream of data contiously)
+  }
+
+  loginUser (): Observable <any> {
+    return this.http.post<any>("http://localhost:3000/login", this.loginData); //this will return observable (stream of data contiously)
   }
 
   
